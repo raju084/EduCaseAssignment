@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-rubik text-text min-h-screen flex items-center justify-center;
+    background: linear-gradient(135deg, #e8eaf6 0%, #dde3f5 40%, #e8eaf6 70%, #d8dcf0 100%);
+  }
+}
+
+.popx-container {
+  @apply w-[375px] bg-[#ECECEC] flex flex-col relative overflow-hidden;
+  height: 812px;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(108, 37, 255, 0.10), 0 2px 8px rgba(0,0,0,0.08);
+}
