@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Eye, EyeOff } from 'lucide-react';
+import React, { useState } from "react";
+import { Eye, EyeOff } from "lucide-react";
 
 interface FloatingLabelInputProps {
   label: string;
@@ -13,25 +13,24 @@ interface FloatingLabelInputProps {
 
 const FloatingLabelInput: React.FC<FloatingLabelInputProps> = ({
   label,
-  type = 'text',
+  type = "text",
   value,
   onChange,
   required = false,
   name,
-  placeholder = 'Marry Doe',
+  placeholder = "Marry Doe",
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
-  const isPassword = type === 'password';
-  const inputType = isPassword ? (showPassword ? 'text' : 'password') : type;
+  const isPassword = type === "password";
+  const inputType = isPassword ? (showPassword ? "text" : "password") : type;
 
   return (
     <div className="relative mb-5 w-full">
-      <label
-        className="absolute left-3 top-[-10px] text-[13px] font-medium text-primary bg-[#ECECEC] px-1 z-10 pointer-events-none"
-      >
-        {label}{required && <span className="text-error ml-0.5">*</span>}
+      <label className="absolute left-3 top-[-10px] text-[13px] font-medium text-primary bg-[#ECECEC] px-1 z-10 pointer-events-none">
+        {label}
+        {required && <span className="text-error ml-0.5">*</span>}
       </label>
       <input
         type={inputType}
@@ -43,9 +42,9 @@ const FloatingLabelInput: React.FC<FloatingLabelInputProps> = ({
         name={name}
         placeholder={placeholder}
         className={`w-full px-4 py-3.5 text-sm text-text-secondary border rounded-lg bg-transparent transition-all outline-none
-          ${isFocused ? 'border-primary' : 'border-[#CBCBCB]'}
+          ${isFocused ? "border-primary" : "border-[#CBCBCB]"}
         `}
-        style={{ background: 'transparent' }}
+        style={{ background: "transparent" }}
       />
       {isPassword && (
         <button

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface RadioButtonProps {
   label: string;
@@ -26,9 +26,12 @@ const RadioButton: React.FC<RadioButtonProps> = ({
         onChange={() => onChange(value)}
         className="absolute opacity-0 cursor-pointer"
       />
-      <span className={`absolute top-0 left-0 h-5 w-5 bg-white border-2 border-border rounded-full transition-all group-hover:border-primary
-        ${checked ? 'border-primary' : ''}
-      `} style={{ width: '20px', height: '20px' }}>
+      <span
+        className={`absolute top-0 left-0 h-5 w-5 bg-white border-2 border-border rounded-full transition-all group-hover:border-primary
+        ${checked ? "border-primary" : ""}
+      `}
+        style={{ width: "20px", height: "20px" }}
+      >
         {checked && (
           <span className="absolute top-1 left-1 w-2 h-2 rounded-full bg-primary" />
         )}

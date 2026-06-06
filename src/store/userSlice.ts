@@ -1,4 +1,4 @@
-import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
 interface User {
   fullName: string;
@@ -16,9 +16,9 @@ interface UserState {
 }
 
 const loadUsers = (): User[] => {
-  const saved = localStorage.getItem('popx_users');
+  const saved = localStorage.getItem("popx_users");
   const initial = [
-    { fullName: 'Marry Doe', email: 'marry@gmail.com', password: 'password' }
+    { fullName: "Marry Doe", email: "marry@gmail.com", password: "password" },
   ];
   return saved ? JSON.parse(saved) : initial;
 };
@@ -30,22 +30,27 @@ const initialState: UserState = {
 };
 
 const userSlice = createSlice({
-  name: 'user',
+  name: "user",
   initialState,
   reducers: {
     register: (state, action: PayloadAction<User>) => {
       state.registeredUsers.push(action.payload);
-      localStorage.setItem('popx_users', JSON.stringify(state.registeredUsers));
+      localStorage.setItem("popx_users", JSON.stringify(state.registeredUsers));
       state.currentUser = action.payload;
       state.error = null;
     },
-    login: (state, action: PayloadAction<{ email: string; password?: string }>) => {
-      const user = state.registeredUsers.find(u => u.email === action.payload.email);
+    login: (
+      state,
+      action: PayloadAction<{ email: string; password?: string }>,
+    ) => {
+      const user = state.registeredUsers.find(
+        (u) => u.email === action.payload.email,
+      );
       if (user) {
         state.currentUser = user;
         state.error = null;
       } else {
-        state.error = 'Invalid email or user not found. Please register first.';
+        state.error = "Invalid email or user not found. Please register first.";
       }
     },
     logout: (state) => {
@@ -53,7 +58,7 @@ const userSlice = createSlice({
     },
     clearError: (state) => {
       state.error = null;
-    }
+    },
   },
 });
 
